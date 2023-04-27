@@ -67,6 +67,7 @@ function editAlumnoPage(req, res) {
 function editAlumno(req, res) {
     const legajo= parseInt(req.params.legajoAlumno)
     const alumno = {
+        legajo: parseInt(req.body.legajo),
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         año: parseInt(req.body.año)

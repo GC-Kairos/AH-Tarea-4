@@ -65,7 +65,7 @@ async function editAlumno(legajoAlumno, alumno) {
         if (alumnos[i].legajo == legajoAlumno) {
             alumnos[i] = {
                 ...alumno, 
-                legajo: alumnos[i].legajo,
+               
             }
             editAlumno = alumnos[i]
             break

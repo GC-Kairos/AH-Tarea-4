@@ -44,8 +44,8 @@ function createPage(title, content) {
 function createNewAlumnoPage() {
     let html = `<h1>Crear nuevo alumno</h1>`
     html += `<form action="/alumnos/nuevo" method="POST" enctype="application/x-www-form-urlencoded">
-    <label for="legajo">legajo:
-    <input type="number"  name="legajo" id="legajo"></input>
+    <label for="legajo">Legajo:
+    <input type="number"  name="legajo" id="legajo" value="${alumno.legajo}"></input>
     </label>
     
     <label for="nombre">Nombre: 
@@ -72,6 +72,11 @@ function formEditAlumno(alumno) {
     let html = `<h1>Modificar alumno #${alumno.legajo}</h1>`
 
     html += `<form action="/alumnos/${alumno.legajo}/edit" method="POST" enctype="application/x-www-form-urlencoded">
+
+        <label for="legajo">Legajo:
+        <input type="number"  name="legajo" id="legajo"  value="${alumno.legajo}"></input>
+        </label>
+    
         <label for="nombre">Nombre: 
             <input type="text" name="nombre" id="nombre" value="${alumno.nombre}">
         </label>

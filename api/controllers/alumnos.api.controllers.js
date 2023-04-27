@@ -39,7 +39,8 @@ function getAlumnoByLegajo(req, res) {
 function replaceAlumno(req, res) {
     const legajoAlumno = parseInt(req.params.legajoAlumno)
     const alumno = {
-         nombre: req.body.nombre,
+        legajo: parseInt(req.body.legajo),
+        nombre: req.body.nombre,
         apellido: req.body.apellido,
         año: parseInt(req.body.año)
     }
