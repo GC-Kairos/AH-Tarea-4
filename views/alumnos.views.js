@@ -44,11 +44,12 @@ function createPage(title, content) {
 function createNewAlumnoPage() {
     let html = `<h1>Crear nuevo alumno</h1>`
     html += `<form action="/alumnos/nuevo" method="POST" enctype="application/x-www-form-urlencoded">
-    <label for="legajo">Legajo:
-    <input type="number"  name="legajo" id="legajo" value="${alumno.legajo}"></input>
-    </label>
+        
+        <label for="legajo">Legajo:
+            <input type="number"  name="legajo" id="legajo">
+        </label>
     
-    <label for="nombre">Nombre: 
+        <label for="nombre">Nombre: 
             <input type="text" name="nombre" id="nombre">
         </label>
 

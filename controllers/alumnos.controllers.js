@@ -40,7 +40,7 @@ function createAlumno(req, res) {
 
     services.createAlumno(alumno)
         .then(function (newAlumno) {
-            res.send(views.createPage('Alumno creado', `<p>El alumno ${newAlumno.nombre} ${newAlumno.apellido}  ha sido creado con el legajo${newAlumno.legajo}</p>`))
+            res.send(views.createPage('Alumno creado', `<p>El alumno ${newAlumno.nombre} ${newAlumno.apellido}  ha sido creado con el legajo ${newAlumno.legajo}</p>`))
         })
         .catch(function (error) {
             res.send(views.createPage('Error creando alumno', `<p>Se ha producido un error creando el alumno</p>`))
@@ -76,7 +76,7 @@ function editAlumno(req, res) {
     services.editAlumno(legajo, alumno)
         .then(function (alumno) {
             if (alumno) {
-                res.send(views.createPage('Alumno modificado', `<p>El alumno ${alumno.nombre} ha sido modificado</p>`))
+                res.send(views.createPage('Alumno modificado', `<p>El alumno ${alumno.nombre} ${alumno.apellido} | legajo: ${alumno.legajo} ha sido modificado</p>`))
             }
             else {
                 res.send(views.createPage('Alumno no encontrado', '<p>El alumno no existe</p>'))
@@ -110,7 +110,7 @@ function deleteAlumno(req, res) {
     services.deleteAlumno(legajo)
         .then(function (alumno) {
             if (alumno) {
-                res.send(views.createPage('Alumno eliminado', `<p>El alumno ${alumno.nombre} ha sido eliminado</p>`))
+                res.send(views.createPage('Alumno eliminado', `<p>El alumno ${alumno.nombre} ${alumno.apellido} | legajo ${alumno.legajo} ha sido eliminado</p>`))
             }
             else {
                 res.send(views.createPage('Alumno no encontrado', '<p>El alumno no existe</p>'))
