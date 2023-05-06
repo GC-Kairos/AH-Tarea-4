@@ -12,7 +12,8 @@ function getAlumnos(req, res) {
 
 
 function getAlumnoDetail(req, res) {
-    const legajoAlumno = req.params.legajoAlumno
+
+    const legajoAlumno = req.params.legajoAlumno;
 
     services.getAlumnoByLegajo(legajoAlumno)
         .then(function (alumno) {
@@ -31,8 +32,9 @@ function createNewAlumnoPage(req, res) {
 }
 
 function createAlumno(req, res) {
+
     const alumno = {
-        legajo: parseInt(req.body.legajo),
+        legajo: req.body.legajo,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         año: parseInt(req.body.año)
@@ -49,7 +51,7 @@ function createAlumno(req, res) {
 
 
 function editAlumnoPage(req, res) {
-    const legajo= req.params.legajoAlumno
+    const legajo = req.params.legajoAlumno;
 
     services.getAlumnoByLegajo(legajo)
         .then(function (alumno) {
@@ -65,9 +67,10 @@ function editAlumnoPage(req, res) {
 
 
 function editAlumno(req, res) {
-    const legajo= parseInt(req.params.legajoAlumno)
+
+    const legajo = req.params.legajoAlumno;
     const alumno = {
-        legajo: parseInt(req.body.legajo),
+        legajo: req.body.legajo,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         año: parseInt(req.body.año)
@@ -90,7 +93,8 @@ function editAlumno(req, res) {
 
 
 function deleteAlumnoPage(req, res) {
-    const legajo= req.params.legajoAlumno
+
+    const legajo = req.params.legajoAlumno
 
     services.getAlumnoByLegajo(legajo)
         .then(function (alumno) {
@@ -105,7 +109,8 @@ function deleteAlumnoPage(req, res) {
 }
 
 function deleteAlumno(req, res) {
-    const legajo= parseInt(req.params.legajoAlumno)
+
+    const legajo = req.params.legajoAlumno;
 
     services.deleteAlumno(legajo)
         .then(function (alumno) {

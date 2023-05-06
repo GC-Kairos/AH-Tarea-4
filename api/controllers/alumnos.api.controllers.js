@@ -10,7 +10,7 @@ function getAlumnos(req, res) {
 
 function createAlumno(req, res) {
     const alumno = {
-        legajo: parseInt(req.body.legajo),
+        legajo: req.body.legajo,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         año: parseInt(req.body.año)
@@ -23,7 +23,8 @@ function createAlumno(req, res) {
 }
 
 function getAlumnoByLegajo(req, res) {
-    const legajoAlumno = req.params.legajoAlumno
+
+    const legajoAlumno = req.params.legajoAlumno;
 
     service.getAlumnoByLegajo(legajoAlumno)
         .then(function (alumno) {
@@ -37,7 +38,8 @@ function getAlumnoByLegajo(req, res) {
 }
 
 function replaceAlumno(req, res) {
-    const legajoAlumno = parseInt(req.params.legajoAlumno)
+
+    const legajoAlumno = req.params.legajoAlumno;
     const alumno = {
         legajo: parseInt(req.body.legajo),
         nombre: req.body.nombre,
@@ -57,7 +59,8 @@ function replaceAlumno(req, res) {
 }
 
 function updateAlumno(req, res) {
-    const legajoAlumno = parseInt(req.params.legajoAlumno)
+
+    const legajoAlumno = req.params.legajoAlumno;
 
     const alumno = {}
 
@@ -85,9 +88,10 @@ function updateAlumno(req, res) {
 }
 
 function deleteAlumno(req, res) {
-    const id = parseInt(req.params.legajoAlumno)
 
-    service.deleteAlumno(id)
+    const legajo = req.params.legajoAlumno;
+
+    service.deleteAlumno(legajo)
         .then(function (alumno) {
             if (alumno) {
                 res.status(200).json(alumno)
